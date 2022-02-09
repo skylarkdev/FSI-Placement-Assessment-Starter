@@ -1,5 +1,3 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
 // First, tell us your name
 let yourName = 'Clayton Burns' // HINT: Replace this with your own name!
 
@@ -7,9 +5,15 @@ let yourName = 'Clayton Burns' // HINT: Replace this with your own name!
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
-let gbquant = document.querySelector('#qty-gb')
-let ccquant = document.querySelector('#qty-cc')
-let sugarquant = document.querySelector('#qty-sugar')
+let totalcnt = 0 // Cookie Total
+
+// selecting the quantity elements in the individual item table
+let gbquant = document.querySelector('#qty-gb') // Gingerbread
+let ccquant = document.querySelector('#qty-cc') // Chocolate Chip
+let sugarquant = document.querySelector('#qty-sugar') // Sugar
+
+// selecting the total quantity element
+let totalquant = document.querySelector('#qty-total')
 
 // selecting the element with an id of credit
 const credit = document.querySelector('#credit')
@@ -29,38 +33,55 @@ credit.textContent = `Created by ${yourName}`
 // Event listener for clicks on the "+" button for Gingerbread cookies
 gbPlusBtn.addEventListener('click', function() {
     gb++
-    gbquant.textContent = (`${gb}`)
+    gbquant.textContent = gb
+    totalcnt = totalcnt + 1
+    totalquant.textContent = totalcnt
 })
 
 // Event listener for clicks on the "-" button for Gingerbread cookies
 gbMinusBtn.addEventListener('click', function() {
-    gb--
-    gbquant.textContent = (`${gb}`)
+    if (gb > 0){
+        gb--
+        gbquant.textContent = gb
+        totalcnt = totalcnt - 1
+        totalquant.textContent = totalcnt
+    }
 })
 
 // Event listener for clicks on the "+" button for Chocolate Chip cookies
 ccPlusBtn.addEventListener('click', function() {
     cc++
-    ccquant.textContent = (`${cc}`)
+    ccquant.textContent = cc
+    totalcnt = totalcnt + 1
+    totalquant.textContent = totalcnt
 })
 
 // Event listener for clicks on the "-" button for Chocolate Chip cookies
 ccMinusBtn.addEventListener('click', function() {
-    cc--
-    ccquant.textContent = (`${cc}`)
+    if (cc > 0) {
+        cc--
+        ccquant.textContent = cc
+        totalcnt = totalcnt - 1
+        totalquant.textContent = totalcnt
+    }
 })
 
 // Event listener for clicks on the "+" button for Sugar cookies
 sugarPlusBtn.addEventListener('click', function() {
     sugar++
-    sugarquant.textContent = (`${sugar}`)
+    sugarquant.textContent = sugar
+    totalcnt = totalcnt + 1
+    totalquant.textContent = totalcnt
 })
 
 // Event listener for clicks on the "-" button for Sugar cookies
 sugarMinusBtn.addEventListener('click', function() {
-    sugar--
-    sugarquant.textContent = (`${sugar}`)
+    if (sugar > 0) {
+        sugar--
+        sugarquant.textContent = sugar
+        totalcnt = totalcnt - 1
+        totalquant.textContent = totalcnt
+    }
 })
 
 
-// TODO: Hook up event listeners for the rest of the buttons
